@@ -99,14 +99,7 @@ TreeNode * minimum(TreeNode *x) //Lista
     return x;
 }
 
-TreeNode * maximum(TreeNode *x) //Lista
-{
-    while (x->right != NULL)
-    {
-        x = x->right;
-    }
-    return x;
-}
+
 
 
 void removeNode(TreeMap * tree, TreeNode* node) //Lista
@@ -229,6 +222,7 @@ Pair * upperBound(TreeMap * tree, void* key)
             }
         }
     }
+    if (aux->pair->key < key) return NULL;
     return aux->pair;
     
 }
