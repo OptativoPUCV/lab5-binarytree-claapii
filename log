@@ -571,3 +571,17 @@ treemap.c:218:18: error: ‘result’ may be used uninitialized in this function
 cc1: all warnings being treated as errors
 Compilation failed
 06ca893
+Tue 07 May 2024 10:44:57 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:218:12: error: returning ‘TreeNode *’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  218 |     return result;
+      |            ^~~~~~
+treemap.c:203:15: error: ‘result’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
+  203 |     TreeNode *result;
+      |               ^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+1227374

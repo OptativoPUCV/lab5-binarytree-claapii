@@ -215,7 +215,7 @@ Pair * upperBound(TreeMap * tree, void* key)
         else if (key == aux->pair->key) return aux->pair;
         
     }
-    return result->pair;
+    return result;
 }
 
 Pair * firstTreeMap(TreeMap * tree) //Lista
