@@ -197,23 +197,25 @@ Pair * searchTreeMap(TreeMap * tree, void* key) //Lista
 
 Pair * upperBound(TreeMap * tree, void* key) 
 {
-    if (tree == NULL || tree->root == NULL) return NULL;
 
+    
     TreeNode *aux = tree->root;
-    Pair *result = NULL;
-
-    while (aux != NULL) {
-        if (key < aux->pair->key) { // Si la clave es menor
-            result = aux->pair;
+    TreeNode *result = NULL;
+    while (aux != NULL)
+    {
+        if ((int*)key < (int*)aux->pair->key)
+        {
+            result = aux;
             aux = aux->left;
-        } else if (key > aux->pair->key) { // Si la clave es mayor
-            aux = aux->right;
-        } else { // Si las claves son iguales
-            return aux->pair;
         }
+        else if((int*)key > (int*)aux->pair->key)
+        {
+            aux = aux->right;
+        }
+        else if ((int*)key == (int*)aux->pair->key) return aux->pair;
+        
     }
-
-    return result;
+    return result->pair;
 }
 
 Pair * firstTreeMap(TreeMap * tree) //Lista
