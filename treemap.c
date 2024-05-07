@@ -208,11 +208,13 @@ Pair *upperBound(TreeMap * tree, void* key)
             result = aux;
             aux = aux->left;
         }
-        else if(key > aux->pair->key)
+        else if(is_equal(tree, key, aux->pair->key))
         {
-            aux = aux->right;
+            result = aux;
+            break;
         }
-        else if (key == aux->pair->key) return aux->pair;
+        else 
+            aux = aux->right;
         
     }
     if (result == NULL) return NULL;
