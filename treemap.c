@@ -197,11 +197,13 @@ Pair * searchTreeMap(TreeMap * tree, void* key) //Lista
 
 Pair * upperBound(TreeMap * tree, void* key) 
 {
+    Pair *dato = searchTreeMap(tree, key);
+    if (dato->key == key) return dato;
     TreeNode *aux = tree->root;
     TreeNode *result = NULL;
     while (aux != NULL)
     {
-        if (key <= aux->pair->key)
+        if (key < aux->pair->key)
         {
             result = aux;
             aux = aux->left;
