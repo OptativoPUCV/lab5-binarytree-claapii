@@ -206,11 +206,12 @@ Pair * searchTreeMap(TreeMap * tree, void* key) //Lista
 
 Pair * upperBound(TreeMap * tree, void* key) 
 {
-    Pair *dato = searchTreeMap(tree, key);
+    int *llave = (int*)key;
+    Pair *dato = searchTreeMap(tree, llave);
     TreeNode *max = maximum(tree->root); 
     while (dato == NULL)
     {
-        dato = searchTreeMap(tree, key++);
+        dato = searchTreeMap(tree, llave++);
         if (dato->key > max->pair->key) return NULL;
     }
     return dato;
