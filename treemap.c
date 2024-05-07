@@ -103,7 +103,6 @@ TreeNode * minimum(TreeNode *x) //Lista
 void removeNode(TreeMap * tree, TreeNode* node) 
 {
     
-    }
 
     return;
 }
