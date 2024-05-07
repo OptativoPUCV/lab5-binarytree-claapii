@@ -203,12 +203,12 @@ Pair * upperBound(TreeMap * tree, void* key)
     Pair *result = NULL;
 
     while (aux != NULL) {
-        if (tree->lower_than(key, aux->pair->key) == 1) {
+        if (key < aux->pair->key) { // Si la clave es menor
             result = aux->pair;
             aux = aux->left;
-        } else if (tree->lower_than(key, aux->pair->key) == 0) {
+        } else if (key > aux->pair->key) { // Si la clave es mayor
             aux = aux->right;
-        } else {
+        } else { // Si las claves son iguales
             return aux->pair;
         }
     }
