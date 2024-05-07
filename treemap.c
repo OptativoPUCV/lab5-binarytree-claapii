@@ -223,14 +223,13 @@ Pair * nextTreeMap(TreeMap * tree)
     else
     {
         while (aux->parent != NULL && aux->parent->right == aux)
-            {
-                aux = aux->parent;
-                
-            }
-        aux = aux->parent;
-        
-        
+        {
+            aux = aux->parent;
+        }
+        aux = aux->parent;  
     }
+    tree->current = aux;
+    
     
     return aux->pair;
 }
