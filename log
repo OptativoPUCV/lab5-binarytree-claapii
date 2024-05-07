@@ -560,3 +560,14 @@ Tue 07 May 2024 10:43:24 PM UTC:
  1 file changed, 1 insertion(+)
  tests:  0|0
 15439a8
+Tue 07 May 2024 10:44:37 PM UTC: 
+ treemap.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:218:18: error: ‘result’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
+  218 |     return result->pair;
+      |            ~~~~~~^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+06ca893
