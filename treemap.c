@@ -129,14 +129,14 @@ void removeNode(TreeMap * tree, TreeNode* node)
         {
             if (node->parent->left == node) 
             {
-                node->parent->left = node->left;
-                node->left->parent = node->parent;
+                node->parent->left = node->right;
+                node->right->parent = node->parent;
             }
 
             else 
             {
-                node->parent->right = node->left;
-                node->left->parent = node->parent;
+                node->parent->right = node->right;
+                node->right->parent = node->parent;
             }
         }
         //En caso de tener 2 hijos
