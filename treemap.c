@@ -197,30 +197,21 @@ Pair * upperBound(TreeMap * tree, void* key)
 {
     Pair *dato = searchTreeMap(tree, key);
     if (dato != NULL) return dato;
-
-    TreeNode *aux = tree->root;
     Pair *upper = NULL;
-
-    while (aux != NULL) {
-        if (is_equal(tree, key, aux->pair->key) == 1) {
-            // Si encontramos un par con la misma clave, lo devolvemos
-            return aux->pair;
-        } else {
-            // Si la clave del nodo actual es menor que la clave dada,
-            // actualizamos el par 'upper' y avanzamos hacia la derecha
-            if (tree->lower_than(aux->pair->key, key) == 1) {
-                upper = aux->pair;
-                aux = aux->right;
-            } else {
-                // Si la clave del nodo actual es mayor o igual que la clave dada,
-                // avanzamos hacia la izquierda
-                aux = aux->left;
-            }
+    
+    TreeNode *aux = tree->root;
+    while (aux != NULL)
+    {
+        if (aux->pair->key > key)
+        {
+            upper = aux->pair;
+            aux = aux->left;
         }
+        else
+            aux = aux->right;
     }
-
-    // Si no se encontró ningún par con clave mayor o igual, devolvemos el último par 'upper' encontrado
     return upper;
+    
 }
 
 Pair * firstTreeMap(TreeMap * tree) //Lista
