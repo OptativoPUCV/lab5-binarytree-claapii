@@ -154,7 +154,13 @@ void removeNode(TreeMap * tree, TreeNode* node)
                 }
                 node->pair->key = mayor->pair->key;
                 node->pair->value = mayor->pair->value;
-                removeNode(tree, mayor);
+                if (mayor->left != NULL)
+                {
+                    mayor = mayor->left;
+                    
+                }
+                  
+                
             }
         }
     }
