@@ -471,3 +471,9 @@ treemap.c:214:45: error: expected statement before ‘)’ token
 cc1: all warnings being treated as errors
 Compilation failed
 5e2fe96
+Tue 07 May 2024 10:20:04 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  25|1
+total_score: 60/70
+c2852c6
