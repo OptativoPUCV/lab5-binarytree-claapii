@@ -147,11 +147,9 @@ void removeNode(TreeMap * tree, TreeNode* node)
             {
                 mayor = mayor->right;
             }
-            mayor->right = node->right;
             node->pair->key = mayor->pair->key;
             node->pair->value = mayor->pair->value;
             removeNode(tree, mayor);
-
         }
             
     }
