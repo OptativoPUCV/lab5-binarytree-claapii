@@ -206,7 +206,7 @@ Pair * upperBound(TreeMap * tree, void* key)
 {
     Pair *dato = searchTreeMap(tree, key);
     if (dato != NULL) return dato;
-    if (maximum(tree->root)->pair->key < key) return NULL;
+    if ((int*)maximum(tree->root)->pair->key < (int*)key) return NULL;
     
     TreeNode *aux = tree->root;
     while (aux != NULL)
