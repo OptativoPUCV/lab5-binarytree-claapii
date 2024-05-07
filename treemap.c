@@ -197,20 +197,29 @@ Pair * upperBound(TreeMap * tree, void* key)
 {
     Pair *dato = searchTreeMap(tree, key);
     if (dato != NULL) return dato;
-    Pair *upper = NULL;
     
     TreeNode *aux = tree->root;
     while (aux != NULL)
     {
-        if (aux->pair->key > key)
+        if (is_equal(tree, key, aux->pair->key) == 1)
         {
-            upper = aux->pair;
-            aux = aux->left;
+            return aux->pair;
         }
-        else
-            aux = aux->right;
+            
+        else 
+        {
+            if (tree->lower_than(key, aux->pair->key) == 1)
+            {
+                aux = aux->left;
+            }
+            else
+            {
+                aux = aux->right;
+            }
+            
+        }
     }
-    return upper;
+    return aux->pair;
     
 }
 
