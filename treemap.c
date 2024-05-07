@@ -224,7 +224,7 @@ Pair * nextTreeMap(TreeMap * tree)
     {
         while (aux->parent < aux)
             aux = aux->parent;
-        if (aux->parent > aux) aux = aux->parent;
+        aux = aux->parent;
     }
     
     return aux->pair;
