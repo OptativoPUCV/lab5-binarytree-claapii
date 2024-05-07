@@ -99,6 +99,15 @@ TreeNode * minimum(TreeNode *x) //Lista
     return x;
 }
 
+TreeNode * maximum(TreeNode *x) //Lista
+{
+    while (x->right != NULL)
+    {
+        x = x->right;
+    }
+    return x;
+}
+
 
 
 
@@ -198,31 +207,13 @@ Pair * searchTreeMap(TreeMap * tree, void* key) //Lista
 Pair * upperBound(TreeMap * tree, void* key) 
 {
     Pair *dato = searchTreeMap(tree, key);
-    if (dato != NULL) return dato;
-    
-    TreeNode *aux = tree->root;
-    while (aux != NULL)
+    TreeNode *max = maximum(tree->root); 
+    while (dato == NULL)
     {
-        if (is_equal(tree, key, aux->pair->key) == 1)
-        {
-            return aux->pair;
-        }
-            
-        else 
-        {
-            if (tree->lower_than(key, aux->pair->key) == 1)
-            {
-                if (aux->left == NULL) break;
-                aux = aux->left;
-            }
-            else
-            {
-                if (aux->right == NULL) break;
-                aux = aux->right;
-            }
-        }
+        dato = searchTreeMap(tree, (int*)key + 1);
+        if (dato->key > max->pair->key) return NULL;
     }
-    return aux->pair;
+    return dato;
     
 }
 
