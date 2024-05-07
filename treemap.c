@@ -47,7 +47,7 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) //Lista
 }
 
 
-void insertTreeMap(TreeMap * tree, void* key, void * value) 
+void insertTreeMap(TreeMap * tree, void* key, void * value) //Lista
 {
     if (tree == NULL || key == NULL || value == NULL) return;
 
@@ -100,7 +100,7 @@ TreeNode * minimum(TreeNode *x) //Lista
 }
 
 
-void removeNode(TreeMap * tree, TreeNode* node) 
+void removeNode(TreeMap * tree, TreeNode* node) //Lista
 {
     if (tree == NULL || node == NULL) return;
     if (node->left == NULL && node->right == NULL)
@@ -197,8 +197,16 @@ Pair * upperBound(TreeMap * tree, void* key) {
     return NULL;
 }
 
-Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+Pair * firstTreeMap(TreeMap * tree) 
+{
+    TreeNode *aux = tree->root;
+    if (aux == NULL) return NULL;
+    while (aux->left != NULL)
+        {
+            aux = aux->left;
+        }
+    tree->current = aux;
+    return aux->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) 
