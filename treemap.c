@@ -222,10 +222,12 @@ Pair * nextTreeMap(TreeMap * tree)
     }
     else
     {
-        while (aux->parent < aux)
-            aux = aux->parent;
+        int *key = (int *)aux->pair->key;
         aux = aux->parent;
+        while(aux != NULL && (int*)aux->pair->key < key)
+            aux = aux->parent;
+        return aux->pair;
     }
     
-    return aux->pair;
+    return NULL;
 }
