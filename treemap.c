@@ -99,6 +99,15 @@ TreeNode * minimum(TreeNode *x) //Lista
     return x;
 }
 
+TreeNode * maximum(TreeNode *x) //Lista
+{
+    while (x->right != NULL)
+    {
+        x = x->right;
+    }
+    return x;
+}
+
 
 void removeNode(TreeMap * tree, TreeNode* node) //Lista
 {
@@ -197,6 +206,7 @@ Pair * upperBound(TreeMap * tree, void* key)
 {
     Pair *dato = searchTreeMap(tree, key);
     if (dato != NULL) return dato;
+    if (maximum(tree->root)->pair->key < key) return NULL;
     
     TreeNode *aux = tree->root;
     while (aux != NULL)
