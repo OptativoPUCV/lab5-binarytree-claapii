@@ -206,6 +206,7 @@ Pair * upperBound(TreeMap * tree, void* key)
         if ((int*)key < (int*)aux->pair->key)
         {
             result = aux;
+            result->pair = aux->pair;
             aux = aux->left;
         }
         else if((int*)key > (int*)aux->pair->key)
