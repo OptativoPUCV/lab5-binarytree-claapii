@@ -201,6 +201,7 @@ Pair * upperBound(TreeMap * tree, void* key)
     
     TreeNode *aux = tree->root;
     TreeNode *result = NULL;
+    result->pair = NULL;
     while (aux != NULL)
     {
         if (key < aux->pair->key)
