@@ -212,7 +212,9 @@ Pair * upperBound(TreeMap * tree, void* key)
             aux = aux->right;
         
     }
-    return result->pair;
+    if (result != NULL) 
+        return result->pair;
+    return NULL;
 }
 
 Pair * firstTreeMap(TreeMap * tree) //Lista
