@@ -147,10 +147,14 @@ void removeNode(TreeMap * tree, TreeNode* node)
             //En caso de tener 2 hijos
             if (node->left != NULL && node->right != NULL)
             {
-                TreeNode *min = minimum(node->right);
-                node->pair->key = min->pair->key;
-                node->pair->value = min->pair->value;
-                removeNode(tree, min);
+                TreeNode *mayor = node->left;
+                while (mayor->right != NULL)
+                {
+                    mayor = mayor->right;
+                }
+                node->pair->key = mayor->pair->key;
+                node->pair->value = mayor->pair->value;
+                removeNode(tree, mayor);
             }
         }
     }
